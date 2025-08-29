@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Students</title>
+</head>
+<body>
+    <style>
+        table, tr , td , th {
+            border: 2px solid black;
+        }
+    </style>
+    <table>
+        <tr>
+        <th>ID</th>
+        <th>USERNAME</th>
+        <th>EMAIL</th>
+        <th>PASSWORD</th>
+        </tr>
+     <% for (student of students) { %>
+        <tr>
+            <td><%=student.id%></td>
+            <td><%=student.username%></td>
+            <td><%=student.email%></td>
+            <td><%=student.password%></td>    
+            <td>
+            <form method="GET"  action="/user/<%= student.id %>/edit" >
+                <button>Edit USERNAME</button>
+            </form>
+           <form method="POST" action="/user/<%= student.id %>?_method=DELETE">
+    <button>Delete</button>
+</form>
+            </td>      
+        </tr>
+         <% } %>
+    </table>
+
+               
+  
+    
+
+</body>
+</html>
